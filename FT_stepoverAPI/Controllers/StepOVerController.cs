@@ -145,6 +145,7 @@ namespace FT_stepoverAPI.Controllers
             // Convert the characters inside the buffer into a managed string.
             string strBio = Marshal.PtrToStringAnsi(biodata);
 
+
             // get final image
             int picsize = 0;
             IntPtr picture = sopadDLL.SOPAD_ReadHighResBitmap(0, ref picsize);
@@ -152,8 +153,10 @@ namespace FT_stepoverAPI.Controllers
             {
                 byte[] managedArray = new byte[picsize];
                 imagem = managedArray;
-               
-                
+                Marshal.Copy(picture, managedArray, 0, picsize);
+                MemoryStream ms = new MemoryStream();
+                ms.Write(managedArray, 0, Convert.ToInt32(managedArray.Length));
+
 
             }
 
