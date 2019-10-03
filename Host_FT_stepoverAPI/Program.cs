@@ -11,20 +11,15 @@ namespace Host_FT_stepoverAPI
 {
     static class Program
     {
-        /// <summary>
-        /// Ponto de entrada principal para o aplicativo.
-        /// </summary>
+       
         [STAThread]
         static void Main()
         {
 
-            string baseAddress = "http://localhost:9000";
+            string baseAddress = "http://localhost:9000";            
+            Microsoft.Owin.Hosting.WebApp.Start<Startup>(url: baseAddress);          
 
-            
-            Microsoft.Owin.Hosting.WebApp.Start<Startup>(url: baseAddress);
-          
-
-                Application.EnableVisualStyles();
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
