@@ -16,13 +16,13 @@ namespace FT_stepoverAPI.Models
 
         }
 
-        Byte[] imagem_assinatura;
+        private Byte[] imagem_assinatura;
 
 
-        public  status st { get; set; }
+        public status st { get; set; }
 
 
-        string msg;
+        private string msg;
 
 
         public byte[] Imagem_assinatura { get => imagem_assinatura; set => imagem_assinatura = value; }

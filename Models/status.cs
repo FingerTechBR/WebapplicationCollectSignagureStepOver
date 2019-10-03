@@ -7,11 +7,10 @@ namespace FT_stepoverAPI.Models
 {
     public enum status
     {
-        Recebido,
-        Vazio,
-        Error,
-
-
+        Capturando = 1,
+        Reiniciando_captura = 2,
+        Capturado_Sucesso = 3,
+        Error = 4
 
     }
 }
