@@ -25,10 +25,7 @@ namespace FT_stepoverAPI.Controllers
         IntPtr timestamp;
         Byte[] imagem;
         TOnSignFinishedHandlerEx onSignFinishedHandlerEx = null;
-
         bool pegarimagemcontrolador;
-
-
         Assinatura assinatura = new Assinatura();
        
       
@@ -36,22 +33,15 @@ namespace FT_stepoverAPI.Controllers
         [HttpGet]
         [Route("imagem")]
         public Assinatura getimagem()
-        {
-
-
-
-           
+        {          
 
 
 
             if (WebApiConfig.inservice == false)
             {
                 String drivercertificateXML = null;
-                string startupPath = AppDomain.CurrentDomain.BaseDirectory;
-                Debug.WriteLine("caminho" + startupPath);
-                // Obtém o caminho de o onde o arquivo estará
-                string arquivo = Path.Combine(startupPath, "bin\\FT_stepoverAPI.xml");
-
+                string startupPath = AppDomain.CurrentDomain.BaseDirectory;    
+                string arquivo = Path.Combine(startupPath, "\\FT_stepoverAPI.xml");            
                 try
                 {
                     StreamReader streamReader = new StreamReader(arquivo);
@@ -60,8 +50,9 @@ namespace FT_stepoverAPI.Controllers
                 }
                 catch (FileNotFoundException e)
                 {
-                    
+                    drivercertificateXML = "Certificado não encontrado";
                 }
+              
                
                 initRes = sopadDLL.SOPAD_initialize();
                 pcert = Marshal.AllocHGlobal(256);
@@ -70,8 +61,8 @@ namespace FT_stepoverAPI.Controllers
                 timestamp = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(GMTStamType)));
                 onSignFinishedHandlerEx = new TOnSignFinishedHandlerEx(this.OnDeviceSignFinishedEx);              
                 bool dispositivo_conectado = sopadDLL.SOPAD_EnumeratePadsFirst(psettings);                                            
-                sopadDLL.SOPAD_SetDriverLong(5/*autoFinish*/, 3000);
-                // Now you can pass that to the function that needs to call you back.
+                sopadDLL.SOPAD_SetDriverLong(5/*Auto finalizar assinatura time - >*/, 3000);
+                
                 sopadDLL.SOPAD_SetDriverLong(4, Marshal.GetFunctionPointerForDelegate(onSignFinishedHandlerEx).ToInt32());
                 sopadDLL.SOPAD_SetDriverLong(59, 0);
                 if (!dispositivo_conectado)
@@ -81,7 +72,7 @@ namespace FT_stepoverAPI.Controllers
                     return assinatura;
                 }
                 pegarimagemcontrolador = false;
-                //  S   et OnSignFinish Timer to 3000ms
+               
                 try
                 {
                    
@@ -130,15 +121,18 @@ namespace FT_stepoverAPI.Controllers
 
         [HttpGet]
         [Route("fechar")]
-        public void fechar()
+        public Assinatura fechar()
         {
 
+            assinatura.Msg = "Captura Fechada";
+            assinatura.st = status.Fechado;
             sopadDLL.SOPAD_stopCapture(padID, timestamp, 0);
             Marshal.FreeHGlobal(pcert);
             Marshal.FreeHGlobal(psettings);
             Marshal.FreeHGlobal(padID);
             Marshal.FreeHGlobal(timestamp);
             WebApiConfig.inservice = false;
+            return assinatura;
 
 
         }

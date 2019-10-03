@@ -10,7 +10,8 @@ namespace FT_stepoverAPI.Models
         Capturando = 1,
         Reiniciando_captura = 2,
         Capturado_Sucesso = 3,
-        Error = 4
+        Error = 4,
+        Fechado = 5
 
     }
 }
