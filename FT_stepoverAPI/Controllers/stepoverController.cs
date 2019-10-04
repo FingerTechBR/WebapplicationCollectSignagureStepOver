@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Web.Http;
 using System.Web.Http.Cors;
+
 using System.Xml;
 
 namespace FT_stepoverAPI.Controllers
@@ -40,11 +41,10 @@ namespace FT_stepoverAPI.Controllers
             if (WebApiConfig.inservice == false)
             {
                 String drivercertificateXML = null;
-                string startupPath = AppDomain.CurrentDomain.BaseDirectory;    
-                string arquivo = Path.Combine(startupPath, "\\FT_stepoverAPI.xml");            
+                  
                 try
                 {
-                    StreamReader streamReader = new StreamReader(arquivo);
+                    StreamReader streamReader = new StreamReader("C:\\FingertechWeb PAD\\FT_stepoverAPI.xml");
                      drivercertificateXML = streamReader.ReadToEnd();
 
                 }

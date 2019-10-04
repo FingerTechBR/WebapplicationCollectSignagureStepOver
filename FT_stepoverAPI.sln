@@ -7,20 +7,36 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT_stepoverAPI", "FT_stepov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host_FT_stepoverAPI", "Host_FT_stepoverAPI\Host_FT_stepoverAPI.csproj", "{145FF1C0-26BA-434A-8076-75811730E62E}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "instalador", "instalador\instalador.vdproj", "{B07613C0-B1D3-49EF-BBF2-106F6599A599}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{38DFBE4A-B21E-48A9-BFE6-E3ECF4D51838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{38DFBE4A-B21E-48A9-BFE6-E3ECF4D51838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38DFBE4A-B21E-48A9-BFE6-E3ECF4D51838}.Debug|x86.ActiveCfg = Debug|x86
+		{38DFBE4A-B21E-48A9-BFE6-E3ECF4D51838}.Debug|x86.Build.0 = Debug|x86
 		{38DFBE4A-B21E-48A9-BFE6-E3ECF4D51838}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38DFBE4A-B21E-48A9-BFE6-E3ECF4D51838}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38DFBE4A-B21E-48A9-BFE6-E3ECF4D51838}.Release|x86.ActiveCfg = Release|x86
+		{38DFBE4A-B21E-48A9-BFE6-E3ECF4D51838}.Release|x86.Build.0 = Release|x86
 		{145FF1C0-26BA-434A-8076-75811730E62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{145FF1C0-26BA-434A-8076-75811730E62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{145FF1C0-26BA-434A-8076-75811730E62E}.Debug|x86.ActiveCfg = Debug|x86
+		{145FF1C0-26BA-434A-8076-75811730E62E}.Debug|x86.Build.0 = Debug|x86
 		{145FF1C0-26BA-434A-8076-75811730E62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{145FF1C0-26BA-434A-8076-75811730E62E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{145FF1C0-26BA-434A-8076-75811730E62E}.Release|x86.ActiveCfg = Release|x86
+		{145FF1C0-26BA-434A-8076-75811730E62E}.Release|x86.Build.0 = Release|x86
+		{B07613C0-B1D3-49EF-BBF2-106F6599A599}.Debug|Any CPU.ActiveCfg = Debug
+		{B07613C0-B1D3-49EF-BBF2-106F6599A599}.Debug|x86.ActiveCfg = Debug
+		{B07613C0-B1D3-49EF-BBF2-106F6599A599}.Release|Any CPU.ActiveCfg = Release
+		{B07613C0-B1D3-49EF-BBF2-106F6599A599}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
